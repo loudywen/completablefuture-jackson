@@ -70,4 +70,8 @@ public class JsonNodeTest {
         // just for pull request testing
     }
 
+    @Test
+    public void test3() {
+        // just for pull request testing
+    }
 }
