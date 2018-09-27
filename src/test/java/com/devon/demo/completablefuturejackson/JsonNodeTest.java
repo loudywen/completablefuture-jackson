@@ -15,7 +15,7 @@ import java.util.Set;
 public class JsonNodeTest {
 
     @Test
-    public void jsonTest1() {
+    public void jsonTest3() {
 
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.createObjectNode();
