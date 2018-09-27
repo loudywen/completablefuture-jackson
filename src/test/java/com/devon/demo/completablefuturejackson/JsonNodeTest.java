@@ -6,9 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,8 +14,8 @@ import java.util.Set;
 //@SpringBootTest
 public class JsonNodeTest {
 
-	@Test
-	public void jsonTest1() {
+    @Test
+    public void jsonTest1() {
 
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.createObjectNode();
@@ -29,7 +26,7 @@ public class JsonNodeTest {
         ((ObjectNode) metaNode).put("clientId", "34");
 
         JsonNode element = mapper.createObjectNode();
-        ((ObjectNode) element).put("name","retailAmount");
+        ((ObjectNode) element).put("name", "retailAmount");
         Set<String> setOfStuff = new HashSet<String>();
         setOfStuff.add("sdf");
         setOfStuff.add("sdDf");
@@ -37,7 +34,7 @@ public class JsonNodeTest {
         setOfStuff.add("sdSf");
 
         ArrayNode valueArrayNode = mapper.createArrayNode();
-        setOfStuff.forEach(value ->{
+        setOfStuff.forEach(value -> {
             valueArrayNode.add(value);
         });
 
@@ -46,16 +43,16 @@ public class JsonNodeTest {
 
 
         JsonNode invalid = mapper.createObjectNode();
-        ((ObjectNode) invalid).put("description","whatever");
-        ((ObjectNode) invalid).put("sumZero",true);
-        ((ObjectNode) invalid).set("element",element);
+        ((ObjectNode) invalid).put("description", "whatever");
+        ((ObjectNode) invalid).put("sumZero", true);
+        ((ObjectNode) invalid).set("element", element);
 
         JsonNode invalid2 = mapper.createObjectNode();
-        ((ObjectNode) invalid2).set("invalid",invalid);
+        ((ObjectNode) invalid2).set("invalid", invalid);
 
 
-        ((ObjectNode) rootNode).set("meta",metaNode);
-        ((ObjectNode) rootNode).set("data",invalid2);
+        ((ObjectNode) rootNode).set("meta", metaNode);
+        ((ObjectNode) rootNode).set("data", invalid2);
 
 
         String jsonString = null;
@@ -66,6 +63,11 @@ public class JsonNodeTest {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void test2() {
+        // just for pull request testing
     }
 
 }
